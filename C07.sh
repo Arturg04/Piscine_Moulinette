@@ -94,12 +94,12 @@ test_ex()
 	local file_test=temp/C07/test.out
 	local file_final=temp/C07/final.out
 
-	compile "$ex" "$main" "$file_test"
+	compile "$ex" "$main" "$file_test" "$exextra"
 	if [ $? -ne 0 ]; then
 		echo -e "${RED}Compilation failed${DEFAULT}"
 	return 0
 	fi
-	compile "$template" "$main" "$file_final"
+	compile "$template" "$main" "$file_final" "$templateextra"
 
 	./"$file_final" > "temp/output_final.txt"
 	./"$file_test" > "temp/output_test.txt"
