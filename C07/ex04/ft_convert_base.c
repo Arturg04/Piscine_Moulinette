@@ -6,12 +6,11 @@
 /*   By: Arturg04 <artur.13.goncalves@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 22:42:16 by Arturg04          #+#    #+#             */
-/*   Updated: 2023/09/22 19:30:42 by Arturg04         ###   ########.fr       */
+/*   Updated: 2023/09/26 22:43:27 by Arturg04         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "ft_convert_base2.c"
 
 int	ft_atoi_base(char *str, char *base);
 int	check(char *base);
