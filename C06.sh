@@ -83,6 +83,7 @@ test_ex()
 	return 0
 	fi
 
+	echo teste > "temp/output_test.txt"
 	./"$file_test" >> "temp/output_test.txt"
 	./"$file_test" "hello" >> "temp/output_test.txt"
 	./"$file_test" "hello" "world" "!" >> "temp/output_test.txt"
@@ -95,6 +96,7 @@ test_ex()
 	./"$file_test" "hello" "world" NULL "!" "1" "2" "3" >> "temp/output_test.txt"
 
 	compile "$template" "$file_test"
+	echo teste > "temp/output_final.txt"
 	./"$file_test" >> "temp/output_final.txt"
 	./"$file_test" "hello" >> "temp/output_final.txt"
 	./"$file_test" "hello" "world" "!" >> "temp/output_final.txt"
