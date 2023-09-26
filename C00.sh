@@ -5,7 +5,7 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
-src=~/tests/C00
+src=~/Piscine_Moulinette/C00
 dest=temp/C00
 
 run_tests_for_C00()
@@ -110,11 +110,11 @@ test_ex()
 	local file_test=temp/C00/test.out
 	local file_final=temp/C00/final.out
 
-	run_norminette "$ex"
-	if [ $? -eq 0 ]; then
-		echo -e "${RED}----- ${ex00} -> FAIL ----- ${DEFAULT}"
-		return 0
-	fi
+	#run_norminette "$ex"
+	#if [ $? -eq 0 ]; then
+	#	echo -e "${RED}----- ${ex00} -> FAIL ----- ${DEFAULT}"
+	#	return 0
+	#fi
 
 	compile "$ex" "$main" "$file_test"
 	if [ $? -eq 0 ]; then

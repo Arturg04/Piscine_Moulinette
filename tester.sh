@@ -11,9 +11,9 @@ fi
 
 # Loop through the provided arguments
 for input_string in "$@"; do
-	case input_string in
+	case "$input_string" in
 		"C00")
-			./C00.sh
+			~/Piscine_Moulinette/C00.sh
 			;;
 
 		"C01")
@@ -62,3 +62,5 @@ for input_string in "$@"; do
 			;;
 	esac
 done
+
+export PATH="$HOME/bin:$PATH"

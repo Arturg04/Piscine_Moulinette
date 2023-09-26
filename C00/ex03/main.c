@@ -1,7 +1,8 @@
-void	ft_print_reverse_alphabet(void);
+void ft_print_numbers(void);
 
 int main(void)
 {
-    ft_print_reverse_alphabet();
-    return 0;
+    // Test 1: Print numbers from 0 to 9
+    ft_print_numbers();
+    return (0);
 }
