@@ -74,19 +74,37 @@ test_ex()
 {
 	local ex="$1"
 	local template="$2"
-	local main="$3"
 	local file_test=temp/C00/test.out
 	local file_final=temp/C00/final.out
 
-	compile "$ex" "$main" "$file_test"
+	compile "$ex" "$file_test"
 	if [ $? -ne 0 ]; then
 		echo -e "${RED}Compilation failed${DEFAULT}"
 	return 0
 	fi
-	compile "$template" "$main" "$file_final"
 
-	timeout 10 ./"$file_final" > "temp/output_final.txt"
-	timeout 10 ./"$file_test" > "temp/output_test.txt"
+	timeout 10 ./"$file_test" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "world" "!" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "!" "world" "hello" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "WORLD" "!" "1" "2" "3" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "world!" "!" "12345" "67890" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello world" "world again!" "!" "123 456" "678 900" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "世界" "!" "12345" "67890" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "world" "hello" "!" "1" "2" "3" >> "temp/output_test.txt"
+	timeout 10 ./"$file_test" "hello" "world" NULL "!" "1" "2" "3" >> "temp/output_test.txt"
+
+	compile "$template" "$file_test"
+	timeout 10 ./"$file_test" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "world" "!" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "!" "world" "hello" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "WORLD" "!" "1" "2" "3" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "world!" "!" "12345" "67890" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello world" "world again!" "!" "123 456" "678 900" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "世界" "!" "12345" "67890" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "world" "hello" "!" "1" "2" "3" >> "temp/output_final.txt"
+	timeout 10 ./"$file_test" "hello" "world" NULL "!" "1" "2" "3" >> "temp/output_final.txt"
 
 	if [ $? -eq 124 ]; then
 		echo -e "${RED}----- ${ex} -> TIMEOUT (exceeded 10 seconds) ----- ${DEFAULT}"
