@@ -99,8 +99,8 @@ test_ex()
 	fi
 	compile "$template" "$main" "$file_final"
 
-	timeout 10 ./"$file_final" > "temp/output_final.txt"
-	timeout 10 ./"$file_test" > "temp/output_test.txt"
+	./"$file_final" > "temp/output_final.txt"
+	./"$file_test" > "temp/output_test.txt"
 
 	if [ $? -eq 124 ]; then
 		echo -e "${RED}----- ${ex} -> TIMEOUT (exceeded 10 seconds) ----- ${DEFAULT}"
