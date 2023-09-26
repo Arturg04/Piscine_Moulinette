@@ -27,47 +27,41 @@ int main(void)
 	arr9 = ft_range(10, 8);
 	arr10 = ft_range(10, 7);
 
-	printf("arr1: ");
+	if (arr1 != NULL)
+{	printf("arr1: ");
 	for (int i = 0; i < 10; i++)
 		printf("%d ", arr1[i]);
-	printf("\n");
-
-	printf("arr2: ");
+	printf("\n");}
+if (arr2 != NULL)
+{	printf("arr2: ");
 	for (int i = 9; i >= 0; i--)
 		printf("%d ", arr2[i]);
-	printf("\n");
-
-	printf("arr3: ");
+	printf("\n");}
+if (arr3 != NULL)
+{	printf("arr3: ");
 	for (int i = -10; i < 10; i++)
 		printf("%d ", arr3[i]);
-	printf("\n");
-
+	printf("\n");}
+if (arr4 != NULL)
 	printf("arr4: %p\n", arr4);
-	printf("arr5: ");
+if (arr5 != NULL)
+{	printf("arr5: ");
 	for (int i = 10; i < 20; i++)
 		printf("%d ", arr5[i]);
-	printf("\n");
-
-	printf("arr6: ");
+	printf("\n");}
+if (arr6 != NULL)
+{	printf("arr6: ");
 	for (int i = 10; i < 30; i++)
 		printf("%d ", arr6[i]);
-	printf("\n");
-
-	printf("arr7: %p\n", arr7);
-	printf("arr8: %p\n", arr8);
-	printf("arr9: %p\n", arr9);
-	printf("arr10: %p\n", arr10);
-
-	free(arr1);
-	free(arr2);
-	free(arr3);
-	free(arr4);
-	free(arr5);
-	free(arr6);
-	free(arr7);
-	free(arr8);
-	free(arr9);
-	free(arr10);
+	printf("\n");}
+	if (arr7 != NULL)
+		printf("arr7: %p\n", arr7);
+	if (arr8 != NULL)
+		printf("arr8: %p\n", arr8);
+	if (arr9 != NULL)
+		printf("arr9: %p\n", arr9);
+	if (arr10 != NULL)
+		printf("arr10: %p\n", arr10);
 
 	return (0);
 }
