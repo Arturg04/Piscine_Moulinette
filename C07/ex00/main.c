@@ -17,9 +17,12 @@ int main(void)
 	dest2 = ft_strdup(src2);
 	dest3 = ft_strdup(src3);
 
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src1, dest1);
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src2, dest2);
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src3, dest3);
+	if (dest1 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src1, dest1);
+	if (dest2 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src2, dest2);
+	if (dest3 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src3, dest3);
 
 
 	char *src4 = "This is a very long string.";
@@ -34,9 +37,12 @@ int main(void)
 	dest5 = ft_strdup(src5);
 	dest6 = ft_strdup(src6);
 
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src4, dest4);
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src5, dest5);
-	printf("ft_strdup(\"%s\"): \"%s\"\n", src6, dest6);
+	if (dest4 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src4, dest4);
+	if (dest5 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src5, dest5);
+	if (dest6 != NULL)
+		printf("ft_strdup(\"%s\"): \"%s\"\n", src6, dest6);
 
 
 	return (0);
