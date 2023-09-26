@@ -76,8 +76,9 @@ compile()
 	local filename="$1"
 	local mainfile="$2"
 	local outputname="$3"
+	local filename2="$4"
 
-	cc -Wextra -Werror -Wall "$filename" "$mainfile" -o "$outputname"
+	cc -Wextra -Werror -Wall "$filename" "$mainfile" "$filename2" -o "$outputname"
 
 	local exit_status="$?"
 
