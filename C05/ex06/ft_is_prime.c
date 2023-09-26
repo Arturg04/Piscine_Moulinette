@@ -6,7 +6,7 @@
 /*   By: Arturg04 <artur.13.goncalves@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:38:32 by Arturg04          #+#    #+#             */
-/*   Updated: 2023/09/21 19:48:53 by Arturg04         ###   ########.fr       */
+/*   Updated: 2023/09/26 22:34:17 by Arturg04         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@ int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 1;
-	if (nb == 1 || nb < 0)
+	i = 2;
+	if (nb == 1 || nb < 0 || nb % 2 == 0)
 		return (0);
-	while (++i < nb)
+	while (i < nb)
 	{
 		if (nb % i == 0)
 			return (0);
+		i = i+2;
 	}
 	return (1);
 }
