@@ -8,7 +8,6 @@ int main(void)
 	int *arr1;
 	int *arr2;
 	int *arr3;
-	int *arr4;
 	int *arr5;
 	int *arr6;
 	int *arr7;
@@ -19,7 +18,6 @@ int main(void)
 	int len1 = ft_ultimate_range(&arr1, 0, 10);
 	int len2 = ft_ultimate_range(&arr2, 10, 0);
 	int len3 = ft_ultimate_range(&arr3, -10, 10);
-	int len4 = ft_ultimate_range(&arr4, 10, 11);
 	int len5 = ft_ultimate_range(&arr5, 10, 20);
 	int len6 = ft_ultimate_range(&arr6, 10, 30);
 	int len7 = ft_ultimate_range(&arr7, 10, 10);
@@ -42,7 +40,6 @@ int main(void)
 		printf("%d ", arr3[i]);
 	printf("\n");
 
-	printf("arr4: %p\n", arr4);
 	printf("arr5: ");
 	for (int i = 10; i < len5; i++)
 		printf("%d ", arr5[i]);
@@ -61,7 +58,6 @@ int main(void)
 	free(arr1);
 	free(arr2);
 	free(arr3);
-	free(arr4);
 	free(arr5);
 	free(arr6);
 	free(arr7);
