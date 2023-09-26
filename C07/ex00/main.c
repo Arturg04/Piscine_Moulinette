@@ -21,12 +21,9 @@ int main(void)
 	printf("ft_strdup(\"%s\"): \"%s\"\n", src2, dest2);
 	printf("ft_strdup(\"%s\"): \"%s\"\n", src3, dest3);
 
-	free(dest1);
-	free(dest2);
-	free(dest3);
 
 	char *src4 = "This is a very long string.";
-	char *src5 = "This is a string with special characters: @!#$%^&*()_+";
+	char *src5 = "This is a string with special characters: @!#$^&*()_+";
 	char *src6 = "This is a string with spaces.";
 
 	char *dest4;
@@ -41,9 +38,6 @@ int main(void)
 	printf("ft_strdup(\"%s\"): \"%s\"\n", src5, dest5);
 	printf("ft_strdup(\"%s\"): \"%s\"\n", src6, dest6);
 
-	free(dest4);
-	free(dest5);
-	free(dest6);
 
 	return (0);
 }
