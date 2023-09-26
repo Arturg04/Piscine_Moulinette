@@ -5,8 +5,8 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
-src=~/Piscine_Moulinette/C07
-dest=temp/C07
+src=~/Piscine_Moulinette/C04
+dest=temp/C04
 
 run_tests_for_C07()
 {
