@@ -8,7 +8,7 @@ int main(void)
 {
 	char *src1 = "Hello, world!";
 	char *src2 = "";
-	char *src3 = NULL;
+	char *src3 = "";
 	char *dest1;
 	char *dest2;
 	char *dest3;
