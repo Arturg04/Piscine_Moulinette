@@ -93,7 +93,7 @@ test_ex()
 	./"$file_test" "hello" "world" "hello" "!" "1" "2" "3" >> "temp/output_test.txt"
 	./"$file_test" "hello" "world" NULL "!" "1" "2" "3" >> "temp/output_test.txt"
 
-	echo teste > "temp/output_final.txt"
+	compile "$template" "$file_test"
 	./"$file_test" >> "temp/output_final.txt"
 	./"$file_test" "hello" >> "temp/output_final.txt"
 	./"$file_test" "hello" "world" "!" >> "temp/output_final.txt"
