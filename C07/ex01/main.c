@@ -8,7 +8,6 @@ int main(void)
 	int *arr1;
 	int *arr2;
 	int *arr3;
-	int *arr4;
 	int *arr5;
 	int *arr6;
 	int *arr7;
@@ -19,7 +18,6 @@ int main(void)
 	arr1 = ft_range(0, 10);
 	arr2 = ft_range(10, 0);
 	arr3 = ft_range(-10, 10);
-	arr4 = ft_range(10, 11);
 	arr5 = ft_range(10, 20);
 	arr6 = ft_range(10, 30);
 	arr7 = ft_range(10, 10);
@@ -42,8 +40,7 @@ if (arr3 != NULL)
 	for (int i = -10; i < 10; i++)
 		printf("%d ", arr3[i]);
 	printf("\n");}
-if (arr4 != NULL)
-	printf("arr4: %p\n", arr4);
+
 if (arr5 != NULL)
 {	printf("arr5: ");
 	for (int i = 10; i < 20; i++)
