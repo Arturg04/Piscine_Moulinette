@@ -42,7 +42,7 @@ run_tests_for_C04()
 	file2=ft_convert_base2.c
 	tester=ft_convert_base.o
 	tester2=ft_convert_base2.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$ex"/"$file2" "$dest"/"$ex"/"$tester2" "$dest"/"$ex"/main.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o "$ex"/"$file2" "$dest"/"$ex"/"$tester2"
 
 	# ex05
 	ex=ex05
@@ -87,7 +87,9 @@ compile()
 test_ex()
 {
 	local ex="$1"
+	local exextra="$4"
 	local template="$2"
+	local templateextra="$5"
 	local main="$3"
 	local file_test=temp/C07/test.out
 	local file_final=temp/C07/final.out
