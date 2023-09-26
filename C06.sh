@@ -16,25 +16,25 @@ run_tests_for_C06()
 	ex=ex00
 	file=ft_print_program_name.c
 	tester=ft_print_program_name.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex01
 	ex=ex01
 	file=ft_print_params.c
 	tester=ft_print_params.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex02
 	ex=ex02
 	file=ft_rev_params.c
 	tester=ft_rev_params.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex03
 	ex=ex03
 	file=ft_sort_params.c
 	tester=ft_sort_params.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	rm -r -f temp
 }
