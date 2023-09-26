@@ -24,7 +24,8 @@ int main(void)
 	int i = 0;
 	while (res1[i])
 	{
-		printf("res1[%d]: %s\n", i, res1[i]);
+		if (res1[i] != NULL)
+			printf("res1[%d]: %s\n", i, res1[i]);
 		i++;
 	}
 	printf("\n");
@@ -32,7 +33,8 @@ int main(void)
 	i = 0;
 	while (res2[i])
 	{
-		printf("res2[%d]: %s\n", i, res2[i]);
+		if (res2[i] != NULL)
+			printf("res2[%d]: %s\n", i, res2[i]);
 		i++;
 	}
 	printf("\n");
@@ -40,7 +42,8 @@ int main(void)
 	i = 0;
 	while (res3[i])
 	{
-		printf("res3[%d]: %s\n", i, res3[i]);
+		if (res3[i] != NULL)
+			printf("res3[%d]: %s\n", i, res3[i]);
 		i++;
 	}
 	printf("\n");
@@ -48,7 +51,8 @@ int main(void)
 	i = 0;
 	while (res4[i])
 	{
-		printf("res4[%d]: %s\n", i, res4[i]);
+		if (res4[i] != NULL)
+			printf("res4[%d]: %s\n", i, res4[i]);
 		i++;
 	}
 	printf("\n");
@@ -56,16 +60,11 @@ int main(void)
 	i = 0;
 	while (res5[i])
 	{
-		printf("res5[%d]: %s\n", i, res5[i]);
+		if (res5[i] != NULL)
+			printf("res5[%d]: %s\n", i, res5[i]);
 		i++;
 	}
 	printf("\n");
-
-	free(res1);
-	free(res2);
-	free(res3);
-	free(res4);
-	free(res5);
 
 	return (0);
 }
