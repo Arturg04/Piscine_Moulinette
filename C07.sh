@@ -102,9 +102,9 @@ test_ex()
 	./"$file_final" > "temp/output_final.txt"
 	./"$file_test" > "temp/output_test.txt"
 
-	if [ $? -eq 124 ]; then
-		echo -e "${RED}----- ${ex} -> TIMEOUT (exceeded 10 seconds) ----- ${DEFAULT}"
-	else
+	# if [ $? -eq 124 ]; then
+	# 	echo -e "${RED}----- ${ex} -> TIMEOUT (exceeded 10 seconds) ----- ${DEFAULT}"
+	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
 		else
@@ -116,7 +116,7 @@ test_ex()
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
 		fi
-	fi
+	# fi
 
 	rm -f "$file_test"  "$file_final"
 }
