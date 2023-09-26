@@ -16,55 +16,55 @@ run_tests_for_C00()
 	ex=ex00
 	file=ft_putchar.c
 	tester=ft_putchar.o
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_print_alphabet.c
-	tester=ft_print_alphabet.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_alphabet.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_print_reverse_alphabet.c
-	tester=ft_print_reverse_alphabet.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_reverse_alphabet.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_print_numbers.c
-	tester=ft_print_numbers.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_numbers.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
 	ex=ex04
 	file=ft_is_negative.c
-	tester=ft_is_negative.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_is_negative.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex05
 	ex=ex05
 	file=ft_print_comb.c
-	tester=ft_print_comb.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_comb.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex06
 	ex=ex06
 	file=ft_print_comb2.c
-	tester=ft_print_comb2.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_comb2.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex07
 	ex=ex07
 	file=ft_putnbr.c
-	tester=ft_putnbr.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_putnbr.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex08
 	ex=ex08
 	file=ft_print_combn.c
-	tester=ft_print_combn.c
-	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.c
+	tester=ft_print_combn.o
+	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
 }
