@@ -13,6 +13,7 @@ fi
 for input_string in "$@"; do
 	case input_string in
 		"C00")
+			./C00.sh
 			;;
 
 		"C01")
