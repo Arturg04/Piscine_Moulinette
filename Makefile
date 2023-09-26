@@ -15,7 +15,7 @@ all: my_program
 
 # Build the executable using the .o files
 my_program: $(OBJS)
-	$(CC) -o $@ $^
+	$(CC)ft_sort_int_tab -o $@ $^
 
 # Compile each .c file into a .o file in the corresponding directory
 %.o: %.c
