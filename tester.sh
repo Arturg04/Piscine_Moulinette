@@ -17,42 +17,56 @@ for input_string in "$@"; do
 			;;
 
 		"C01")
+			~/Piscine_Moulinette/C01.sh
 			;;
 
 		"C02")
+			~/Piscine_Moulinette/C02.sh
 			;;
 
 		"C03")
+			~/Piscine_Moulinette/C03.sh
 			;;
 
 		"C04")
+			~/Piscine_Moulinette/C04.sh
 			;;
 
 		"C05")
+			~/Piscine_Moulinette/C05.sh
 			;;
 
 		"C06")
+			~/Piscine_Moulinette/C06.sh
 			;;
 
 		"C07")
+			~/Piscine_Moulinette/C07.sh
 			;;
 
 		"C08")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
 			;;
 
 		"C09")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
+
 			;;
 
 		"C10")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
 			;;
 
 		"C11")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
 			;;
 
 		"C12")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
 			;;
 
 		"C13")
+			echo -e "${YELLOW}These assignments are currently being worked on.${DEFAULT}"
 			;;
 
 		*)

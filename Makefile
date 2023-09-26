@@ -1,6 +1,5 @@
 # Define the compiler and compiler flags
 CC := gcc
-CFLAGS := -Wall -Werror
 
 # Define the source directory
 SRCDIR := .
@@ -16,7 +15,7 @@ all: my_program
 
 # Build the executable using the .o files
 my_program: $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 # Compile each .c file into a .o file in the corresponding directory
 %.o: %.c
