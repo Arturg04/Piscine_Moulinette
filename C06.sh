@@ -60,10 +60,9 @@ run_norminette()
 compile()
 {
 	local filename="$1"
-	local mainfile="$2"
-	local outputname="$3"
+	local outputname="$2"
 
-	cc -Wextra -Werror -Wall "$filename" "$mainfile" -o "$outputname"
+	cc -Wextra -Werror -Wall "$filename" -o "$outputname"
 
 	local exit_status="$?"
 
@@ -83,7 +82,6 @@ test_ex()
 	return 0
 	fi
 
-	echo teste > "temp/output_test.txt"
 	./"$file_test" >> "temp/output_test.txt"
 	./"$file_test" "hello" >> "temp/output_test.txt"
 	./"$file_test" "hello" "world" "!" >> "temp/output_test.txt"
@@ -95,7 +93,6 @@ test_ex()
 	./"$file_test" "hello" "world" "hello" "!" "1" "2" "3" >> "temp/output_test.txt"
 	./"$file_test" "hello" "world" NULL "!" "1" "2" "3" >> "temp/output_test.txt"
 
-	compile "$template" "$file_test"
 	echo teste > "temp/output_final.txt"
 	./"$file_test" >> "temp/output_final.txt"
 	./"$file_test" "hello" >> "temp/output_final.txt"
