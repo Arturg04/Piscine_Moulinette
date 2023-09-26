@@ -105,8 +105,8 @@ test_ex()
 	local ex="$1"
 	local template="$2"
 	local main="$3"
-	local file_test=temp/C00/test.out
-	local file_final=temp/C00/final.out
+	local file_test=temp/C05/test.out
+	local file_final=temp/C05/final.out
 
 	compile "$ex" "$main" "$file_test"
 	if [ $? -ne 0 ]; then
