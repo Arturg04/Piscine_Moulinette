@@ -16,11 +16,12 @@ cd ~
 
 2. Clone the git there.
 
-```bash
 git clone https://github.com/Arturg04/Piscine_Moulinette
 
 
 3. Now create an alias for it.
+
+
 
 - zsh:
 
