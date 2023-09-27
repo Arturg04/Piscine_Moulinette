@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 
 void ft_ft(int *nbr);
@@ -12,13 +11,6 @@ int main() {
     printf("Test 1 failed.\n");
     return 1;
   }
-
-  // Test 2: Check that the function works with null pointers.
-//   ft_ft(NULL);
-//   if (nbr != 42) {
-//     printf("Test 2 failed.\n");
-//     return 1;
-//   }
 
   printf("All tests passed.\n");
   return 0;
