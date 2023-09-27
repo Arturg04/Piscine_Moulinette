@@ -28,13 +28,13 @@ git clone https://github.com/Arturg04/Piscine_Moulinette
 - zsh:
 
 ```zsh
-echo "alias Moulinette='~/Piscine_Moulinette/tester.sh'" >> ~/.zshrc && source ~/.zshrc
+echo "alias Moulinette=~/Piscine_Moulinette/tester.sh" >> ~/.zshrc && source ~/.zshrc
 ```
 
 - bash:
 
 ```bash
-echo "alias Moulinette='~/Piscine_Moulinette/tester.sh'" >> ~/.bashrc && source ~/.bashrc
+echo "alias Moulinette=~/Piscine_Moulinette/tester.sh" >> ~/.bashrc && source ~/.bashrc
 ```
 
 
