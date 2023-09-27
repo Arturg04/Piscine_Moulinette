@@ -7,7 +7,6 @@ int main(void)
 {
 	char *str1 = "Hello, world!";
 	char *str2 = "";
-	char *str3 = NULL;
 	char *str4 = "This,is,a,test.";
 	char *str5 = "This,is,a,very,long,test.";
 
@@ -17,7 +16,6 @@ int main(void)
 
 	char **res1 = ft_split(str1, charset1);
 	char **res2 = ft_split(str2, charset2);
-	char **res3 = ft_split(str3, charset3);
 	char **res4 = ft_split(str4, charset1);
 	char **res5 = ft_split(str5, charset3);
 
@@ -35,15 +33,6 @@ int main(void)
 	{
 		if (res2[i] != NULL)
 			printf("res2[%d]: %s\n", i, res2[i]);
-		i++;
-	}
-	printf("\n");
-
-	i = 0;
-	while (res3[i])
-	{
-		if (res3[i] != NULL)
-			printf("res3[%d]: %s\n", i, res3[i]);
 		i++;
 	}
 	printf("\n");
