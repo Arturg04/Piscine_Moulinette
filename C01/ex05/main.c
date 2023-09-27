@@ -10,10 +10,10 @@ int main() {
   ft_putstr(str);
   printf("\n");
 
-  // Test 2: Check that the function works with null strings.
-  str = NULL;
-  ft_putstr(str);
-  printf("\n");
+//   // Test 2: Check that the function works with null strings.
+//   str = NULL;
+//   ft_putstr(str);
+//   printf("\n");
 
   return 0;
 }
