@@ -84,9 +84,9 @@ run_tests_for_C00()
 	rm -r -f temp
 
 	if [ $total -gt 50 ]; then
-		echo "You Pass C00 with $total points"
+		echo "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
 	else
-		echo "You Failed C00 with $total points"
+		echo "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
 	fi
 
 
@@ -97,7 +97,7 @@ run_norminette()
 
 	if command -v norminette &> /dev/null; then
 		if norminette ; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
 			return 1
 		else
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
