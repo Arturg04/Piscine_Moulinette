@@ -85,12 +85,14 @@ run_tests_for_C00()
 
 	if [ $total -gt 50 ]; then
 		echo ""
-		echo "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
 		echo ""
 	else
 		echo ""
-		echo "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
 		echo ""
+
+
 	fi
 
 
