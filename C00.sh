@@ -103,10 +103,14 @@ run_norminette()
 
 	if command -v norminette &> /dev/null; then
 		if norminette ; then
+			echo ""
 			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
