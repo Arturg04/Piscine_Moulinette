@@ -5,6 +5,10 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+count=1
+value=0
+
 src=~/Piscine_Moulinette/C07
 dest=temp/C07
 
@@ -12,28 +16,34 @@ run_tests_for_C04()
 {
 	mkdir temp
 	cp -R "$src" "$dest"
+
+	run_norminette
 	# ex00
 	ex=ex00
 	file=ft_strdup.c
 	tester=ft_strdup.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_range.c
 	tester=ft_range.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_ultimate_range.c
 	tester=ft_ultimate_range.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_strjoin.c
 	tester=ft_strjoin.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
@@ -42,27 +52,44 @@ run_tests_for_C04()
 	file2=ft_convert_base2.c
 	tester=ft_convert_base.o
 	tester2=ft_convert_base2.o
+	value=10
 	test_ex2 "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o "$ex"/"$file2" "$dest"/"$ex"/"$tester2"
 
 	# ex05
 	ex=ex05
 	file=ft_split.c
 	tester=ft_split.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
+
+	if [ $total -gt 50 ]; then
+		echo ""
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo ""
+	else
+		echo ""
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo ""
+
+
+	fi
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+		if norminette ; then
+			echo ""
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
@@ -107,6 +134,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+
+			if [ $count -eq 1 ]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -115,6 +146,8 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
+			count=0
+
 		fi
 	# fi
 

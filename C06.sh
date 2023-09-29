@@ -5,6 +5,10 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+count=1
+value=0
+
 src=~/Piscine_Moulinette/C06
 dest=temp/C06
 
@@ -12,43 +16,64 @@ run_tests_for_C06()
 {
 	mkdir temp
 	cp -R "$src" "$dest"
+
+	run_norminette
 	# ex00
 	ex=ex00
 	file=ft_print_program_name.c
 	tester=ft_print_program_name.o
+	value=25
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex01
 	ex=ex01
 	file=ft_print_params.c
 	tester=ft_print_params.o
+	value=25
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex02
 	ex=ex02
 	file=ft_rev_params.c
 	tester=ft_rev_params.o
+	value=25
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	# ex03
 	ex=ex03
 	file=ft_sort_params.c
 	tester=ft_sort_params.o
+	value=25
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester"
 
 	rm -r -f temp
+
+	if [ $total -gt 50 ]; then
+		echo ""
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo ""
+	else
+		echo ""
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo ""
+
+
+	fi
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+		if norminette ; then
+			echo ""
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
@@ -110,6 +135,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+
+			if [ $count -eq 1 ]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -118,6 +147,8 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
+			count=0
+
 		fi
 	# fi
 
