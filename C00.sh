@@ -5,6 +5,9 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+value=0
+
 src=~/Piscine_Moulinette/C00
 dest=temp/C00
 
@@ -12,58 +15,69 @@ run_tests_for_C00()
 {
 	mkdir temp
 	cp -R "$src" "$dest"
+
+	run_norminette
 	# ex00
 	ex=ex00
 	file=ft_putchar.c
 	tester=ft_putchar.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_print_alphabet.c
 	tester=ft_print_alphabet.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_print_reverse_alphabet.c
 	tester=ft_print_reverse_alphabet.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_print_numbers.c
 	tester=ft_print_numbers.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
 	ex=ex04
 	file=ft_is_negative.c
 	tester=ft_is_negative.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex05
 	ex=ex05
 	file=ft_print_comb.c
 	tester=ft_print_comb.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex06
 	ex=ex06
 	file=ft_print_comb2.c
 	tester=ft_print_comb2.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex07
 	ex=ex07
 	file=ft_putnbr.c
 	tester=ft_putnbr.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex08
 	ex=ex08
 	file=ft_print_combn.c
 	tester=ft_print_combn.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
@@ -123,6 +137,7 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+			total=$((total + value))
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
