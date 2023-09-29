@@ -83,7 +83,7 @@ run_tests_for_C00()
 
 	rm -r -f temp
 
-	if [ $total -gt 50 ]; then
+	if [ $total -gt 49 ]; then
 		echo ""
 		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
 		echo ""

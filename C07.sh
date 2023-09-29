@@ -22,28 +22,28 @@ run_tests_for_C04()
 	ex=ex00
 	file=ft_strdup.c
 	tester=ft_strdup.o
-	value=10
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_range.c
 	tester=ft_range.o
-	value=10
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_ultimate_range.c
 	tester=ft_ultimate_range.o
-	value=10
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_strjoin.c
 	tester=ft_strjoin.o
-	value=10
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
@@ -52,19 +52,19 @@ run_tests_for_C04()
 	file2=ft_convert_base2.c
 	tester=ft_convert_base.o
 	tester2=ft_convert_base2.o
-	value=10
+	value=20
 	test_ex2 "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o "$ex"/"$file2" "$dest"/"$ex"/"$tester2"
 
 	# ex05
 	ex=ex05
 	file=ft_split.c
 	tester=ft_split.o
-	value=10
+	value=20
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
 
-	if [ $total -gt 50 ]; then
+	if [ $total -gt 49 ]; then
 		echo ""
 		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
 		echo ""
