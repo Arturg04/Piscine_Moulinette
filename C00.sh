@@ -81,14 +81,15 @@ run_tests_for_C00()
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
+
+	echo ${total}
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
+		if norminette ; then
 			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
 			return 1
 		else
