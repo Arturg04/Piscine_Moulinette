@@ -16,6 +16,8 @@ run_tests_for_C02()
 {
 	mkdir temp
 	cp -R "$src" "$dest"
+
+	run_norminette
 	# ex00
 	ex=ex00
 	file=ft_strcpy.c

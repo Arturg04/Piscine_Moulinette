@@ -16,6 +16,8 @@ run_tests_for_C07()
 {
 	mkdir temp
 	cp -R "$src" "$dest"
+
+	run_norminette
 	# ex00
 	ex=ex00
 	file=ft_strlen.c
