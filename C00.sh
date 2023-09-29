@@ -6,6 +6,7 @@ RED="\e[31m"
 DEFAULT="\e[0m"
 
 total=0
+count=1
 value=0
 
 src=~/Piscine_Moulinette/C00
@@ -138,7 +139,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
-			total=$((total + value))
+
+			if [count -eq 1]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -147,6 +151,7 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
+			count=0
 		fi
 	# fi
 
