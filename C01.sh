@@ -5,6 +5,10 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+count=1
+value=0
+
 src=~/Piscine_Moulinette/C01
 dest=temp/C01
 
@@ -16,69 +20,94 @@ run_tests_for_C01()
 	ex=ex00
 	file=ft_ft.c
 	tester=ft_ft.o
+	value=10
+
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_ultimate_ft.c
 	tester=ft_ultimate_ft.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_swap.c
 	tester=ft_swap.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_div_mod.c
 	tester=ft_div_mod.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
 	ex=ex04
 	file=ft_ultimate_div_mod.c
 	tester=ft_ultimate_div_mod.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex05
 	ex=ex05
 	file=ft_putstr.c
 	tester=ft_putstr.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex06
 	ex=ex06
 	file=ft_strlen.c
 	tester=ft_strlen.o
+	value=10
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex07
 	ex=ex07
 	file=ft_rev_int_tab.c
 	tester=ft_rev_int_tab.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex08
 	ex=ex08
 	file=ft_sort_int_tab.c
 	tester=ft_sort_int_tab.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
+
+	if [ $total -gt 50 ]; then
+		echo ""
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo ""
+	else
+		echo ""
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo ""
+
+
+	fi
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+		if norminette ; then
+			echo ""
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
@@ -123,6 +152,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+
+			if [ $count -eq 1 ]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -131,6 +164,8 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
+			count=0
+
 		fi
 	# fi
 
