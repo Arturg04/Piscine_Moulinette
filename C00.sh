@@ -140,7 +140,7 @@ test_ex()
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
 
-			if [count -eq 1]; then
+			if [$count -eq 1]; then
 				total=$((total + value))
 			fi
 		else
