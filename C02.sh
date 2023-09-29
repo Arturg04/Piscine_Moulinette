@@ -5,6 +5,10 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+count=1
+value=0
+
 src=~/Piscine_Moulinette/C02
 dest=temp/C02
 
@@ -16,93 +20,121 @@ run_tests_for_C02()
 	ex=ex00
 	file=ft_strcpy.c
 	tester=ft_strcpy.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_strncpy.c
 	tester=ft_strncpy.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_str_is_alpha.c
 	tester=ft_str_is_alpha.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_str_is_numeric.c
 	tester=ft_str_is_numeric.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
 	ex=ex04
 	file=ft_str_is_lowercase.c
 	tester=ft_str_is_lowercase.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex05
 	ex=ex05
 	file=ft_str_is_uppercase.c
 	tester=ft_str_is_uppercase.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex06
 	ex=ex06
 	file=ft_str_is_printable.c
 	tester=ft_str_is_printable.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex07
 	ex=ex07
 	file=ft_strupcase.c
 	tester=ft_strupcase.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex08
 	ex=ex08
 	file=ft_strlowcase.c
 	tester=ft_strlowcase.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex09
 	ex=ex09
 	file=ft_strcapitalize.c
 	tester=ft_strcapitalize.o
+	value=5
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex10
 	ex=ex10
 	file=ft_strlcpy.c
 	tester=ft_strlcpy.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex11
 	ex=ex11
 	file=ft_putstr_non_printable.c
 	tester=ft_putstr_non_printable.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex12
 	ex=ex12
 	file=ft_print_memory.c
 	tester=ft_print_memory.o
+	value=20
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
+
+	if [ $total -gt 50 ]; then
+		echo ""
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo ""
+	else
+		echo ""
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo ""
+
+
+	fi
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+		if norminette ; then
+			echo ""
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
@@ -147,6 +179,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+
+			if [ $count -eq 1 ]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -155,7 +191,8 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
-		fi
+			count=0
+			fi
 	# fi
 
 	rm -f "$file_test"  "$file_final"

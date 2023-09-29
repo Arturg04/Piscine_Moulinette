@@ -5,6 +5,10 @@ GREEN="\e[32m"
 RED="\e[31m"
 DEFAULT="\e[0m"
 
+total=0
+count=1
+value=0
+
 src=~/Piscine_Moulinette/C04
 dest=temp/C04
 
@@ -16,51 +20,72 @@ run_tests_for_C07()
 	ex=ex00
 	file=ft_strlen.c
 	tester=ft_strlen.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex01
 	ex=ex01
 	file=ft_putstr.c
 	tester=ft_putstr.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex02
 	ex=ex02
 	file=ft_putnbr.c
 	tester=ft_putnbr.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex03
 	ex=ex03
 	file=ft_atoi.c
 	tester=ft_atoi.o
+	value=15
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex04
 	ex=ex04
 	file=ft_putnbr_base.c
 	tester=ft_putnbr_base.o
+	value=20
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	# ex05
 	ex=ex05
 	file=ft_atoi_base.c
 	tester=ft_atoi_base.o
+	value=20
 	test_ex "$ex"/"$file" "$dest"/"$ex"/"$tester" "$dest"/"$ex"/main.o
 
 	rm -r -f temp
+
+	if [ $total -gt 50 ]; then
+		echo ""
+		echo -e "${GREEN}*****You Pass C00 with $total points*****${DEFAULT}"
+		echo ""
+	else
+		echo ""
+		echo -e "${RED}*****You Failed C00 with $total points*****${DEFAULT}"
+		echo ""
+
+
+	fi
 }
 
 run_norminette()
 {
-	local filename="$1"
 
 	if command -v norminette &> /dev/null; then
-		if norminette "$filename"; then
-			# echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+		if norminette ; then
+			echo ""
+			echo -e "${GREEN}Norminette checks passed${DEFAULT}"
+			echo ""
 			return 1
 		else
+			echo ""
 			echo -e "${RED}Norminette checks failed${DEFAULT}"
+			echo ""
 			return 0
 		fi
 	else
@@ -105,6 +130,10 @@ test_ex()
 	# else
 		if diff "temp/output_final.txt" "temp/output_test.txt" &> /dev/null; then
 			echo -e "${GREEN}----- ${ex} -> CORRECT ----- ${DEFAULT}"
+
+			if [ $count -eq 1 ]; then
+				total=$((total + value))
+			fi
 		else
 			echo -n "+ "
 			cat -e "temp/output_final.txt"
@@ -113,6 +142,8 @@ test_ex()
 			cat -e "temp/output_test.txt"
 			echo ""
 			echo -e "${RED}----- ${ex} -> FAIL ----- ${DEFAULT}"
+			count=0
+
 		fi
 	# fi
 
