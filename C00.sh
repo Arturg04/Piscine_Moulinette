@@ -83,7 +83,13 @@ run_tests_for_C00()
 
 	rm -r -f temp
 
-	echo ${total}
+	if [ $total -gt 50 ]; then
+		echo "You Pass C00 with $total points"
+	else
+		echo "You Failed C00 with $total points"
+	fi
+
+
 }
 
 run_norminette()
