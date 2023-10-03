@@ -45,7 +45,7 @@ cd C02
 ```
 
 
-5. Run using command `tester` with assignment number as argument. e.g: C02.
+5. Run using command `Moulinette` with assignment number as argument. e.g: C02.
 
 ```bash
 Moulinette C02
